@@ -1,5 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { Paper } from '@material-ui/core';
 
 const CloseRatio = (props) => {
   const closedQuotes = Object.entries(props.quotes).filter(([id, quote]) => quote.status === 'closed');
@@ -7,7 +8,6 @@ const CloseRatio = (props) => {
 
   const numClosed = Object.keys(closedQuotes).length;
   const numPending = Object.keys(pendingQuotes).length;
-  // const numTotal = numClosed + numPending;
 
   console.log(numClosed, numPending);
 
@@ -24,7 +24,9 @@ const CloseRatio = (props) => {
 
   return (
     <div>
-      <Doughnut data={data} />
+      <Paper style={{padding: 16}}>
+        <Doughnut data={data} />
+      </Paper>
     </div>
   );
 };

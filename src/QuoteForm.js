@@ -52,7 +52,9 @@ const QuoteForm = (props) => {
         name: vals['Name'],
         email: vals['Email'],
         price: '3000', // hardcoded price
-        status: 'pending'
+        status: 'pending',
+        message: vals['Message'],
+        startDate: new Date()
       }
     }));
   };
@@ -204,6 +206,16 @@ const QuoteForm = (props) => {
                   name="Email"
                   component={TextField}
                   label="Email"
+                >
+                </Field>
+              </Grid>
+
+              <Grid item xs={6}>
+                <Field
+                  className="field"
+                  name="Message"
+                  component={TextField}
+                  label="Message"
                 >
                 </Field>
               </Grid>

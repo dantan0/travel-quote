@@ -29,27 +29,47 @@ const NewLeads = (props) => {
   //   }
   // };
 
-  const itemRows = Object.entries(props.quotes).map(([id, quote]) => (
-    <ListItem alignItems='flex-start'>
-      <ListItemAvatar>
-        <Avatar src="person-icon.png"/>
-      </ListItemAvatar>
-      <ListItemText
-        primary={quote.name}
-        secondary={quote.message}
-      />
-    </ListItem>
-  ));
+  // Object.entries(props.quotes).forEach(quote => {
+  //   let pastDate = quote.startDate;
+  //   pastDate.setDate(pastDate.getDate() + 30);
+  //   console.log('all past dates', pastDate);
+  //   // const curDate = new Date();
+  //   // console.log('hell', quote.startDate.getTime());
+  //   return pastDate > new Date()
+  // })
+
+  // find leads within the last 60 days
+  const itemRows = Object.entries(props.quotes)
+    .filter(([id, quote]) => {
+        let pastDate = new Date(quote.startDate);
+        pastDate.setDate(pastDate.getDate() + 60)
+        return pastDate > new Date()
+      }
+    )
+    .map(([id, quote]) => (
+    <React.Fragment>
+      <ListItem alignItems='flex-start'>
+        <ListItemAvatar>
+          <Avatar src="person-icon.png"/>
+        </ListItemAvatar>
+        <ListItemText
+          primary={quote.name}
+          secondary={quote.message}
+          // secondary={quote.startDate.toString()}
+        />
+      </ListItem>
+      <Divider variant="inset" component="li" />
+    </React.Fragment>
+  )).slice(0, 5);
 
   return (
     <div className="listContainer">
-      <Paper style={{padding: 16}}>
+      <Paper style={{padding: 16, marginBottom: 60}}>
         <Typography>
           New Leads
         </Typography>
         <List>
           {itemRows}
-          <Divider variant="inset" component="li" />
         </List>
       </Paper>
     </div>
