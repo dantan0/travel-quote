@@ -3,8 +3,10 @@ import { Doughnut } from 'react-chartjs-2';
 import { Paper } from '@material-ui/core';
 
 const CloseRatio = (props) => {
-  const closedQuotes = Object.entries(props.quotes).filter(([id, quote]) => quote.status === 'closed');
-  const pendingQuotes = Object.entries(props.quotes).filter(([id, quote]) => quote.status === 'pending');
+  console.log('from close ratio quotes', props.quotes);
+  console.log('these are object entries from close ratio', Object.entries(props.quotes));
+  const closedQuotes = Object.entries(props.quotes).filter(([id, quote]) => quote.trip_status === 'closed');
+  const pendingQuotes = Object.entries(props.quotes).filter(([id, quote]) => quote.trip_status === 'pending');
 
   const numClosed = Object.keys(closedQuotes).length;
   const numPending = Object.keys(pendingQuotes).length;

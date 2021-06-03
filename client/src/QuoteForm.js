@@ -43,18 +43,18 @@ const QuoteForm = (props) => {
     setQuotes(prevState => ({
       ...prevState,
       [id]: {
-        from: vals['From'],
-        to: vals['To'],
-        departDate: vals['Depart Date'],
-        returnDate: vals['Return Date'],
+        from_city: vals['From'],
+        to_city: vals['To'],
+        depart_date: vals['Depart Date'],
+        return_date: vals['Return Date'],
         people: vals['People'], // max 5 person
         transportation: vals['Transportation'],
         name: vals['Name'],
         email: vals['Email'],
         price: '3000', // hardcoded price
-        status: 'pending',
-        message: vals['Message'],
-        startDate: new Date()
+        trip_status: 'pending',
+        trip_message: vals['Message'],
+        begin_date: new Date()
       }
     }));
   };

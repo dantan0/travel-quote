@@ -122,35 +122,54 @@ const axios = require('axios');
 
 function App() {
   const [quotes, setQuotes] = useState({});
+  // const [persons, setPersons] = useState({});
+
+  const getQuotes = async() => {
+    await fetch('http://localhost:3000/api/quotes')
+    .then(async res => {
+      const quotes = await res.json();
+      setQuotes(quotes);
+    })
+  };
+
+  // const getPersons = async() => {
+  //   await fetch('http://localhost:3000/api/persons')
+  //   .then(async res => {
+  //     const persons = await res.json();
+  //     setPersons(persons);
+  //   })
+  // };
 
   useEffect(() => {
-    axios.get('/api/users')
-      .then(res => console.log(res));
+    getQuotes();
+    // getPersons();
   }, []);
 
   return (
     <div className="App">
       <NavBar/>
-      <Grid
-        container
-        justify="space-around" 
-        spacing={3}
-      >
-        <Grid item xs={5} >
-          <QuoteForm setQuotes={setQuotes}/>
-        </Grid>
-        <Grid item xs={5}>
-          <PendingQuotes quotes={quotes}/>
-        </Grid>
-        <Grid item xs={7}>
-          <PopularDestinations className='p' quotes={quotes}/>
-          <Revenue quotes={quotes}/>
-        </Grid>
-        <Grid item xs={3}>
-          <NewLeads quotes={quotes}/>
-          <CloseRatio quotes={quotes}/>
-        </Grid>
-      </Grid>
+        { quotes && (
+          <Grid
+            container
+            justify="space-around" 
+            spacing={3}
+          >
+            <Grid item xs={5} >
+              <QuoteForm setQuotes={setQuotes}/>
+            </Grid>
+            <Grid item xs={5}>
+              <PendingQuotes quotes={quotes} />
+            </Grid>
+            <Grid item xs={7}>
+              <PopularDestinations className='p' quotes={quotes}/>
+              <Revenue quotes={quotes}/>
+            </Grid>
+            <Grid item xs={3}>
+              <NewLeads quotes={quotes} />
+              <CloseRatio quotes={quotes}/>
+            </Grid>
+          </Grid>
+        )}
     </div>
   );
 }

@@ -11,41 +11,18 @@ import {
 } from '@material-ui/core';
 
 const NewLeads = (props) => {
-  // const leads = {
-  //   "Jane Smith": {
-  //     message: "I want to go to Hawaii",
-  //     timestamp: "11:30AM",
-  //     avatar: "person-icon.png"
-  //   },
-  //   "Fan Oliver": {
-  //     message: "I want to do a scenic road trip",
-  //     timestamp: "11:05PM",
-  //     avatar: "person-icon.png"
-  //   },
-  //   "Olivia Doe": {
-  //     message: "I want to go to Italy",
-  //     timestamp: "1:05PM",
-  //     avatar: "person-icon.png"
-  //   }
-  // };
-
-  // Object.entries(props.quotes).forEach(quote => {
-  //   let pastDate = quote.startDate;
-  //   pastDate.setDate(pastDate.getDate() + 30);
-  //   console.log('all past dates', pastDate);
-  //   // const curDate = new Date();
-  //   // console.log('hell', quote.startDate.getTime());
-  //   return pastDate > new Date()
-  // })
+  console.log('wa', Object.values(props.quotes));
 
   // find leads within the last 60 days
   const itemRows = Object.entries(props.quotes)
     .filter(([id, quote]) => {
-        let pastDate = new Date(quote.startDate);
+        console.log('this is the quote begin date', quote.begin_date);
+        let pastDate = new Date(quote.begin_date);
         pastDate.setDate(pastDate.getDate() + 60)
         return pastDate > new Date()
       }
     )
+    // .sort((a,b) => new Date(b.begin_date) - new Date(a.begin_date))
     .map(([id, quote]) => (
     <React.Fragment>
       <ListItem alignItems='flex-start'>
@@ -54,8 +31,8 @@ const NewLeads = (props) => {
         </ListItemAvatar>
         <ListItemText
           primary={quote.name}
-          secondary={quote.message}
-          // secondary={quote.startDate.toString()}
+          secondary={quote.trip_message}
+          // secondary={new Date(quote.begin_date).toLocaleDateString('en-US')}
         />
       </ListItem>
       <Divider variant="inset" component="li" />

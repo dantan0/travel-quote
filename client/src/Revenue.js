@@ -4,11 +4,9 @@ import { Paper } from '@material-ui/core';
 
 // accumulated prices without an invoice 
 const Revenue = (props) => {
-  const revenueObjs = Object.entries(props.quotes).filter(([id, quote]) => quote.status === "closed")
+  const revenueObjs = Object.entries(props.quotes).filter(([id, quote]) => quote.trip_status === "closed")
   const revenues = revenueObjs.map(([id, quote]) => quote.price);
-  // const allOrders = Object.entries(props.quotes).forEach(([id, quote]) => quote.price);
-  // const orderPrices = Object.entries(prop.quotes).forEach(([id, quote]) => quote.startDate);
-  const dates = revenueObjs.map(([id, quote]) => quote.closeDate.toLocaleDateString('en-US'));
+  const dates = revenueObjs.map(([id, quote]) => new Date(quote.close_date).toLocaleDateString('en-US'));
 
   const data = {
     labels: dates,

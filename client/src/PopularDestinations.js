@@ -7,11 +7,11 @@ const findFrequencies = function(quotes) {
 
   for (const quote of Object.values(quotes)) {
     console.log(quote);
-    if (quote.to in freq) {
-      freq[quote.to] += 1;
+    if (quote.to_city in freq) {
+      freq[quote.to_city] += 1;
     }
     else {
-      freq[quote.to] = 1;
+      freq[quote.to_city] = 1;
     }
   }
 

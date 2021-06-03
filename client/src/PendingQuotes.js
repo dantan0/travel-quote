@@ -12,13 +12,13 @@ import {
 
 const PendingQuotes = (props) => {
   const quoteRows = Object.entries(props.quotes)
-    .filter(([id, quote]) => quote.status === 'pending')
+    .filter(([id, quote]) => quote.trip_status === 'pending').slice(0,5)
     .map(([id, quote]) => (
       <TableRow>
         <TableCell>{id}</TableCell>
         <TableCell>{quote.name}</TableCell>
-        <TableCell>{quote.from}</TableCell>
-        <TableCell>{quote.to}</TableCell>
+        <TableCell>{quote.from_city}</TableCell>
+        <TableCell>{quote.to_city}</TableCell>
         <TableCell>{quote.price}</TableCell>
       </TableRow>
     ));
