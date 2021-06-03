@@ -19,17 +19,20 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-// app.get('/api/persons', (req, res) => {
-//   pool.query(`SELECT * FROM persons;`, (err, person_res) => {
-//     console.log(person_res.rows);
-//     res.send(person_res.rows);
-//   });
-// });
-
 app.get('/api/quotes', (req, res) => {
   pool.query(`SELECT * FROM quotes`, (err, quote_res) => {
     console.log(quote_res.rows);
     res.send(quote_res.rows);
+  });
+});
+
+app.post('/api/quotes', (req, res) => {
+  const text = `INSERT INTO quotes (name, email, from_city, to_city, depart_date, return_date, transportation, price, trip_message, trip_status, begin_date, people) VALUES
+  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *`;
+  const {name, email, from_city, to_city, depart_date, return_date, transportation, price, trip_message, trip_status, begin_date, people} = req.body;
+  const values = [name, email, from_city, to_city, depart_date, return_date, transportation, price, trip_message, trip_status, begin_date, people];
+  pool.query(text, values, (err, ret_res) => {
+    res.send(ret_res);
   });
 });
 

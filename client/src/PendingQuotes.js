@@ -12,7 +12,7 @@ import {
 
 const PendingQuotes = (props) => {
   const quoteRows = Object.entries(props.quotes)
-    .filter(([id, quote]) => quote.trip_status === 'pending').slice(0,5)
+    .filter(([id, quote]) => quote.trip_status === 'pending')
     .map(([id, quote]) => (
       <TableRow>
         <TableCell>{id}</TableCell>

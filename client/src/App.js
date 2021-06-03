@@ -132,17 +132,8 @@ function App() {
     })
   };
 
-  // const getPersons = async() => {
-  //   await fetch('http://localhost:3000/api/persons')
-  //   .then(async res => {
-  //     const persons = await res.json();
-  //     setPersons(persons);
-  //   })
-  // };
-
   useEffect(() => {
     getQuotes();
-    // getPersons();
   }, []);
 
   return (

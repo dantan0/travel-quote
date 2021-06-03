@@ -37,26 +37,33 @@ const QuoteForm = (props) => {
     }))
   };
 
+  const axios = require('axios');
+
   const onSubmit = vals => {
     let id = Math.floor(Math.random() * 100);
 
+    const newQuote = {
+      id,
+      from_city: vals['From'],
+      to_city: vals['To'],
+      depart_date: vals['Depart Date'],
+      return_date: vals['Return Date'],
+      people: vals['People'], // max 5 person
+      transportation: vals['Transportation'],
+      name: vals['Name'],
+      email: vals['Email'],
+      price: '3000', // hardcoded price
+      trip_status: 'pending',
+      trip_message: vals['Message'],
+      begin_date: new Date()
+    }
+
     setQuotes(prevState => ({
       ...prevState,
-      [id]: {
-        from_city: vals['From'],
-        to_city: vals['To'],
-        depart_date: vals['Depart Date'],
-        return_date: vals['Return Date'],
-        people: vals['People'], // max 5 person
-        transportation: vals['Transportation'],
-        name: vals['Name'],
-        email: vals['Email'],
-        price: '3000', // hardcoded price
-        trip_status: 'pending',
-        trip_message: vals['Message'],
-        begin_date: new Date()
-      }
+      [id]: newQuote
     }));
+
+    axios.post(`http://localhost:3000/api/quotes`, newQuote);
   };
 
   const validate = vals => {
