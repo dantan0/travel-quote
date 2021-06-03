@@ -1,12 +1,11 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Paper } from '@material-ui/core';
+import { Paper, Divider, Typography } from '@material-ui/core';
 
 const findFrequencies = function(quotes) {
   const freq = {};
 
   for (const quote of Object.values(quotes)) {
-    console.log(quote);
     if (quote.to_city in freq) {
       freq[quote.to_city] += 1;
     }
@@ -61,6 +60,10 @@ const PopularDestinations = (props) => {
   return (
     <div>
       <Paper style={{padding: 16, marginBottom: 50 }}>
+      <Typography variant='h5'>
+          Popular Destinations
+        </Typography>
+        <Divider style={{marginBottom: 20}}/>
         <Bar 
           data={data}
           options={{

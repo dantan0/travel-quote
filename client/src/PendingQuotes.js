@@ -7,6 +7,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Divider,
   Typography
 } from '@material-ui/core';
 
@@ -26,10 +27,10 @@ const PendingQuotes = (props) => {
   return (
     <div className="tableContainer">
       <TableContainer component={Paper} style={{padding: 16}}>
-          <Typography
-          >
-            Pending Quotes
-          </Typography>
+      <Typography variant='h5'>
+        Pending Quotes
+      </Typography>
+      <Divider style={{marginBottom: 20}}/>
         <Table >
           <TableHead>
             <TableRow>

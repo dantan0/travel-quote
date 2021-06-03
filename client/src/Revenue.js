@@ -1,12 +1,25 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Paper } from '@material-ui/core';
+import { Paper, Divider, Typography } from '@material-ui/core';
 
 // accumulated prices without an invoice 
 const Revenue = (props) => {
-  const revenueObjs = Object.entries(props.quotes).filter(([id, quote]) => quote.trip_status === "closed")
-  const revenues = revenueObjs.map(([id, quote]) => quote.price);
-  const dates = revenueObjs.map(([id, quote]) => new Date(quote.close_date).toLocaleDateString('en-US'));
+  const output = {};
+  for (const key in props.quotes) {
+    const quote = props.quotes[key];
+    if (quote.trip_status === 'closed') {
+      const date = new Date(quote.close_date).toLocaleDateString();
+      console.log('closed date', quote.close_date)
+      if (date in output) {
+        output[date] += parseInt(quote.price);
+      } else {
+        output[date] = parseInt(quote.price);
+      }
+    }
+  };
+
+  const dates = Object.keys(output);
+  const revenues = Object.values(output);
 
   const data = {
     labels: dates,
@@ -22,7 +35,11 @@ const Revenue = (props) => {
 
   return (
     <div>
-      <Paper style={{padding: 16}}>
+      <Paper style={{ padding: 16 }}>
+        <Typography variant='h5'>
+          Revenue
+        </Typography>
+        <Divider style={{marginBottom: 20}}/>
         <Line data={data} />
       </Paper>
     </div>

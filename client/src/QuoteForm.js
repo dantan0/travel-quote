@@ -8,6 +8,7 @@ import {
   Grid,
   Button,
   MenuItem,
+  Divider
 } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -78,7 +79,6 @@ const QuoteForm = (props) => {
 
     // depart date has to be before return date
     if (vals['Depart Date'] >= vals['Return Date']) {
-      console.log(vals['Depart Date'], vals['Return Date']);
       errors['Depart Date'] = 'Wrong Date';
       errors['Return Date'] = 'Wrong Date';
     };
@@ -93,10 +93,10 @@ const QuoteForm = (props) => {
       render={({ handleSubmit, submitting }) => (
         <form className="quoteForm" onSubmit={handleSubmit} noValidate>
           <Paper style={{padding: 16}}>
-          <Typography
-          >
+          <Typography variant='h5'>
             Quick Quote
           </Typography>
+          <Divider />
             <Grid container alignItems="flex-start" spacing={2}>
               <Grid item xs={6}>
                 <Field

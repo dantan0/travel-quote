@@ -3,7 +3,7 @@ import './App.css';
 import QuoteForm from './QuoteForm';
 import PendingQuotes from './PendingQuotes';
 import NewLeads from './NewLeads';
-import Grid from '@material-ui/core/Grid';
+import { Grid, Typography } from '@material-ui/core';
 import NavBar from './NavBar';
 import Revenue from './Revenue';
 import PopularDestinations from './PopularDestinations';
@@ -122,7 +122,6 @@ const axios = require('axios');
 
 function App() {
   const [quotes, setQuotes] = useState({});
-  // const [persons, setPersons] = useState({});
 
   const getQuotes = async() => {
     await fetch('http://localhost:3000/api/quotes')
@@ -146,19 +145,32 @@ function App() {
             spacing={3}
           >
             <Grid item xs={5} >
+              {/* <Typography>
+                Quick Quote
+              </Typography> */}
               <QuoteForm setQuotes={setQuotes}/>
             </Grid>
+
             <Grid item xs={5}>
+              {/* <Typography>
+                Pending Quotes
+              </Typography> */}
               <PendingQuotes quotes={quotes} />
             </Grid>
+
             <Grid item xs={7}>
               <PopularDestinations className='p' quotes={quotes}/>
               <Revenue quotes={quotes}/>
             </Grid>
+
             <Grid item xs={3}>
+              {/* <Typography>
+                New Leads
+              </Typography> */}
               <NewLeads quotes={quotes} />
               <CloseRatio quotes={quotes}/>
             </Grid>
+
           </Grid>
         )}
     </div>

@@ -11,14 +11,11 @@ import {
 } from '@material-ui/core';
 
 const NewLeads = (props) => {
-  console.log('wa', Object.values(props.quotes));
-
-  // find leads within the last 60 days
+  // find leads within the last 30 days
   const itemRows = Object.entries(props.quotes)
     .filter(([id, quote]) => {
-        console.log('this is the quote begin date', quote.begin_date);
         let pastDate = new Date(quote.begin_date);
-        pastDate.setDate(pastDate.getDate() + 60)
+        pastDate.setDate(pastDate.getDate() + 14)
         return pastDate > new Date()
       }
     )
@@ -37,14 +34,15 @@ const NewLeads = (props) => {
       </ListItem>
       <Divider variant="inset" component="li" />
     </React.Fragment>
-  )).slice(0, 5);
+  ))
 
   return (
     <div className="listContainer">
       <Paper style={{padding: 16, marginBottom: 60}}>
-        <Typography>
+        <Typography variant='h5'>
           New Leads
         </Typography>
+        <Divider style={{marginBottom: 20}}/>
         <List>
           {itemRows}
         </List>
