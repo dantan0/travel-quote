@@ -23,7 +23,7 @@ const CloseRatio = (props) => {
   return (
     <div>
       <Paper style={{padding: 16}}>
-        <Typography variant='h5' >
+        <Typography className='header' variant='h5' >
           Close Ratio
         </Typography>
         <Divider style={{marginBottom: 20}}/>

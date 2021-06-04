@@ -1,24 +1,3 @@
--- INSERT INTO persons (name, email)
--- VALUES('Jane Smith', 'janesmith@gmail.com');
-
--- INSERT INTO persons (name, email)
--- VALUES ('Jerry Ho', 'jerryho@gmail.com');
-
--- INSERT INTO persons (name, email)
--- VALUES ('Fan Oliver', 'fanoliver@gmail.com');
-
--- INSERT INTO persons (name, email)
--- VALUES ('Olivia Doe', 'oliviadoe@hotmail.com');
-
--- INSERT INTO persons (name, email)
--- VALUES ('Tanner Wang', 'tanner@gmail.com');
-
--- INSERT INTO persons (name, email)
--- VALUES ('Alice Zinger', 'alicezinger@gmail.com');
-
--- INSERT INTO persons (name, email)
--- VALUES ('Tom Solo', 'tomsolo@gmail.com');
-
 INSERT INTO quotes (name, email, from_city, to_city, depart_date, return_date, transportation, price, trip_message, trip_status, begin_date, people)
 VALUES('Jane Smith', 'janesmith@gmail.com', 'Calgary', 'Hawaii', '2021-07-02', '2021-07-10', 'airplane', 1000, 'Looking for a sunny beach trip', 'pending', '2021-03-10', 3);
 

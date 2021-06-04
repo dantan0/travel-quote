@@ -17,6 +17,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import './App.css';
 
 const drawerWidth = 240;
 

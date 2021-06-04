@@ -8,8 +8,10 @@ import {
   TableRow,
   Paper,
   Divider,
-  Typography
+  Typography,
+  Box
 } from '@material-ui/core';
+import './App.css';
 
 const PendingQuotes = (props) => {
   const quoteRows = Object.entries(props.quotes)
@@ -26,20 +28,40 @@ const PendingQuotes = (props) => {
 
   return (
     <div className="tableContainer">
-      <TableContainer component={Paper} style={{padding: 16}}>
-      <Typography variant='h5'>
+      <TableContainer component={Paper} style={{ padding: 16, marginBottom: 40 }}>
+      <Typography className='header' variant='h5'>
         Pending Quotes
       </Typography>
       <Divider style={{marginBottom: 20}}/>
         <Table >
           <TableHead>
-            <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>From</TableCell>
-              <TableCell>To</TableCell>
-              <TableCell>Price</TableCell>
-            </TableRow>
+              <TableRow>
+                <TableCell>
+                  <Typography >
+                    <Box fontWeight="fontWeightLight" >Id</Box>
+                  </Typography>
+                </TableCell>
+                <TableCell className='table-header'>
+                  <Typography >
+                    <Box fontWeight="fontWeightLight">Name</Box>
+                  </Typography>
+                </TableCell>
+                <TableCell className='table-header'>
+                  <Typography >
+                    <Box fontWeight="fontWeightLight">From</Box>
+                  </Typography>
+                </TableCell>
+                <TableCell className='table-header'>
+                  <Typography >
+                    <Box fontWeight="fontWeightLight">To</Box>
+                  </Typography>
+                </TableCell>
+                <TableCell className='table-header'>
+                  <Typography >
+                    <Box fontWeight="fontWeightLight">Price</Box>
+                  </Typography>
+                </TableCell>
+              </TableRow>
           </TableHead>
           <TableBody>
             {quoteRows}

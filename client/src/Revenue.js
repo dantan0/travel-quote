@@ -36,7 +36,7 @@ const Revenue = (props) => {
   return (
     <div>
       <Paper style={{ padding: 16 }}>
-        <Typography variant='h5'>
+        <Typography className='header' variant='h5'>
           Revenue
         </Typography>
         <Divider style={{marginBottom: 20}}/>

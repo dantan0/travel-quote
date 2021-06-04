@@ -9,6 +9,7 @@ import {
   Avatar,
   Typography
 } from '@material-ui/core';
+import './App.css';
 
 const NewLeads = (props) => {
   // find leads within the last 30 days
@@ -29,17 +30,16 @@ const NewLeads = (props) => {
         <ListItemText
           primary={quote.name}
           secondary={quote.trip_message}
-          // secondary={new Date(quote.begin_date).toLocaleDateString('en-US')}
         />
       </ListItem>
       <Divider variant="inset" component="li" />
     </React.Fragment>
-  ))
+  ));
 
   return (
     <div className="listContainer">
-      <Paper style={{padding: 16, marginBottom: 60}}>
-        <Typography variant='h5'>
+      <Paper style={{padding: 16, marginBottom: 40}}>
+        <Typography className='header' variant='h5'>
           New Leads
         </Typography>
         <Divider style={{marginBottom: 20}}/>

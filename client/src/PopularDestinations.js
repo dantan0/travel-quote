@@ -59,8 +59,8 @@ const PopularDestinations = (props) => {
 
   return (
     <div>
-      <Paper style={{padding: 16, marginBottom: 50 }}>
-      <Typography variant='h5'>
+      <Paper style={{padding: 16, marginBottom: 40 }}>
+      <Typography className='header' variant='h5'>
           Popular Destinations
         </Typography>
         <Divider style={{marginBottom: 20}}/>
@@ -76,7 +76,6 @@ const PopularDestinations = (props) => {
       </Paper>
     </div>
   );
-
 };
 
 export default PopularDestinations;

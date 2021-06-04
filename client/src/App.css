@@ -1,5 +1,17 @@
+* {
+  font-family: Helvetica;
+}
+
 .field {
   width: 200px;
+}
+
+.header {
+  color: #3F51B5;
+}
+
+.table-header {
+  font-weight: 800;
 }
 
 .quote {

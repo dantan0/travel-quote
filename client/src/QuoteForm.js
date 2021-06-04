@@ -15,7 +15,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from '@material-ui/pickers';
-import './App.css'
+import './App.css';
 
 const QuoteForm = (props) => {
   const { setQuotes } = props;
@@ -93,7 +93,7 @@ const QuoteForm = (props) => {
       render={({ handleSubmit, submitting }) => (
         <form className="quoteForm" onSubmit={handleSubmit} noValidate>
           <Paper style={{padding: 16}}>
-          <Typography variant='h5'>
+          <Typography className='header' variant='h5'>
             Quick Quote
           </Typography>
           <Divider />
@@ -128,7 +128,6 @@ const QuoteForm = (props) => {
                     props.input.onChange(formInfo.departDate);
                     return <KeyboardDatePicker
                       className="field"
-                      // disableToolbar
                       variant="inline"
                       format="MM/dd/yyyy"
                       margin="normal"
@@ -148,7 +147,6 @@ const QuoteForm = (props) => {
                     props.input.onChange(formInfo.returnDate);
                     return <KeyboardDatePicker
                       className="field"
-                      // disableToolbar
                       variant="inline"
                       format="MM/dd/yyyy"
                       margin="normal"
@@ -229,11 +227,12 @@ const QuoteForm = (props) => {
 
               <Grid item xs={6}>
                 <Button
-                  className="field"
+                  className="button"
                   variant='contained'
                   color='primary'
                   type='submit'
                   disabled={submitting}
+                  style={{marginTop: 15}}
                 >
                   Create a quote
                 </Button>
