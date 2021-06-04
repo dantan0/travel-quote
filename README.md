@@ -15,7 +15,7 @@ npm install
 npm start
 ```
 
-# Start up DB
+## Start up DB
 ```
 cd server
 psql
