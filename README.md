@@ -19,7 +19,7 @@ npm start
 ```
 cd server
 psql
-CREATE DATABASE webat
+CREATE DATABASE wetbat
 \c wetbat
 \i schema.sql
 \i seeds.sql
