@@ -8,7 +8,7 @@ npm install
 nodemon
 ```
 
-## Start Frontend
+## Set Up Frontend
 ```
 cd client
 npm install
