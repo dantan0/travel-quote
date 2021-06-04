@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import { Form, Field } from 'react-final-form';
-import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
+import { TextField, Select } from 'final-form-material-ui';
 import {
   Typography,
   Paper,

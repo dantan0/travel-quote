@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import QuoteForm from './QuoteForm';
 import PendingQuotes from './PendingQuotes';
 import NewLeads from './NewLeads';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import NavBar from './NavBar';
 import Revenue from './Revenue';
 import PopularDestinations from './PopularDestinations';
