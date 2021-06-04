@@ -17,7 +17,7 @@ npm start
 
 ## Start up DB
 ```
-cd server
+cd server/db
 psql
 CREATE DATABASE wetbat
 \c wetbat
